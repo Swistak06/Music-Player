@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">music-player</string>
+    <string name="play">play</string>
+    <string name="nextTrack">&gt;&gt;</string>
+    <string name="previousTrack">&lt;&lt;</string>
 </resources>

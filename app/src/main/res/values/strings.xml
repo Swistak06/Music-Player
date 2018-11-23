@@ -3,4 +3,7 @@
     <string name="play">play</string>
     <string name="nextTrack">&gt;&gt;</string>
     <string name="previousTrack">&lt;&lt;</string>
+    <string name="pause">pause</string>
+    <string name="back">back</string>
+    <string name="time_zero">0:00</string>
 </resources>

@@ -7,74 +7,14 @@
         android:layout_height="match_parent"
         tools:context=".music_player">
 
-    <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:gravity="bottom" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent">
-        <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="0.25" android:gravity="left|center">
-            <Button
-                    android:text="@string/back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/back_to_list_button"
-            />
-        </LinearLayout>
-        <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center">
-            <TextView
-                    android:text="TextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/track-name" android:textSize="30sp"
-                    android:textAlignment="center"/>
-        </LinearLayout>
-        <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center">
-            <Button
-                    android:text="@string/previousTrack"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/previous-track-button"
-                    android:layout_weight="1"/>
-            <Button
-                    android:text="Play"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/play-button" android:layout_weight="1"
-                    tools:text="@string/play"/>
-            <Button
-                    android:text="@string/nextTrack"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/next-track-button" android:layout_weight="1"/>
-        </LinearLayout>
-        <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center">
-            <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/current_track_time"
-                        android:layout_weight="1" android:text="@string/time_zero"/>
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/track_time" android:layout_weight="1"
-                        android:textAlignment="textEnd" tools:text="@string/time_zero"
-                        android:text="@string/time_zero"/>
-            </LinearLayout>
-            <SeekBar
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/seek_bar"/>
-        </LinearLayout>
-    </LinearLayout>
+            android:id="@+id/main_frame">
+
+    </FrameLayout>
 </android.support.constraint.ConstraintLayout>

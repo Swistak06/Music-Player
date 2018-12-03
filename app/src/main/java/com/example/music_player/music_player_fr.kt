@@ -34,57 +34,73 @@ class music_player_fr : Fragment() {
         val view: View = inflater!!.inflate(R.layout.fragment_music_player, container, false)
         context = activity
 
-
-
-
         //Handling music player not to duplicate
         if(mp == null)
             mp = MediaPlayer.create(context, currentTrack)
 
-        maxTrackMinutes = (mp!!.duration/1000)/60
-        maxTrackSeconds = (mp!!.duration/1000)%60
-
-
-
         //Setting view
         view.play_button.text = play_button_text
-        view.track_time.text = "$maxTrackMinutes:$maxTrackSeconds"
-
-
+        updateViewOnChange(view, position)
 
         //Creating listeners
         view.play_button.setOnClickListener {
             //            //Pausing player
-            if(mp!!.isPlaying ()) {
+            if(mp!!.isPlaying) {
                 //position = mp.getCurrentPosition ()
-                mp!!.pause ()
-                play_button.text = "Play"
-                track_name.text = mp!!.duration.toString()
-                mSeekbarUpdateHandler.removeCallbacks(mUpdateSeekbar)
+                pauseMuicPlayer()
             }
             //Resuming player
             else if (position != 0)
             {
-                mp!!.seekTo (position)
-                mp!!.start()
-                play_button.text = "Pause"
-                mSeekbarUpdateHandler.postDelayed(mUpdateSeekbar,0)
+                resumeMusicPlayer()
             }
             //Running player
             else
             {
-                seek_bar.max = mp!!.duration/1000
-                play_button.text = "Pause"
-                mp!!.start ()
-                mSeekbarUpdateHandler.postDelayed(mUpdateSeekbar,0)
+                runMusicPlayer()
             }
         }
 
         view.next_track_button.setOnClickListener {
-            mp!!.stop()
-            mp = MediaPlayer.create(context, currentTrack)
-            view.seek_bar.progress = 0
-            mp!!.start()
+
+            //changing track
+            currentTrack = R.raw.partyzant
+            position = 0
+
+
+            if(mp!!.isPlaying)
+            {
+                mp!!.stop()
+                mp = MediaPlayer.create(context, currentTrack)
+                runMusicPlayer()
+            }
+            else
+                mp = MediaPlayer.create(context, currentTrack)
+
+
+            updateViewOnChange(view,0)
+        }
+
+        view.previous_track_button.setOnClickListener {
+
+            currentTrack = R.raw.extacy
+
+            if(mp!!.currentPosition > 5000)
+                mp!!.seekTo(0)
+            else if(mp!!.isPlaying)
+            {
+                mp!!.stop()
+                mp = MediaPlayer.create(context, currentTrack)
+                runMusicPlayer()
+            }
+            else{
+                mp!!.stop()
+                mp = MediaPlayer.create(context, currentTrack)
+            }
+
+            //Updating music duration
+            position = 0
+            updateViewOnChange(view,0)
 
 
         }
@@ -120,9 +136,40 @@ class music_player_fr : Fragment() {
 
     private val mUpdateSeekbar = object : Runnable {
         override fun run() {
-            //track_name.text = mp.currentPosition.toString()
             view!!.seek_bar.progress = mp!!.getCurrentPosition()/1000
             mSeekbarUpdateHandler.postDelayed(this, 1000)
         }
+    }
+
+    private fun runMusicPlayer(){
+        play_button.text = "Pause"
+        mp!!.start ()
+        mSeekbarUpdateHandler.postDelayed(mUpdateSeekbar,0)
+    }
+
+    private fun resumeMusicPlayer(){
+        mp!!.seekTo (position)
+        mp!!.start()
+        play_button.text = "Pause"
+        mSeekbarUpdateHandler.postDelayed(mUpdateSeekbar,0)
+    }
+
+    private fun pauseMuicPlayer(){
+        mp!!.pause ()
+        play_button_text = "Play"
+        play_button.text = play_button_text
+        track_name.text = mp!!.duration.toString()
+        mSeekbarUpdateHandler.removeCallbacks(mUpdateSeekbar)
+    }
+
+    fun updateViewOnChange(view : View, position : Int){
+        //Calculating max track time
+        maxTrackMinutes = (mp!!.duration/1000)/60
+        maxTrackSeconds = (mp!!.duration/1000)%60
+        view.seek_bar.max = mp!!.duration/1000
+        view.track_time.text = "$maxTrackMinutes:$maxTrackSeconds"
+        view.seek_bar.progress = position
+
+        //Todo: Track name
     }
 }

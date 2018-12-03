@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="70dp"
+        android:layout_width="match_parent" android:clickable="true"
+        android:focusable="true">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical"
+    >
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:id="@+id/song_name_tv"
+                android:textSize="24sp"
+                android:padding="3dp"
+                android:maxLines="1"
+                android:text="Song name"
+        />
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+        >
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:id="@+id/band_name_tv"
+                    android:maxLength="30"
+                    android:maxLines="1"
+                    android:textSize="17sp"
+                    android:padding="3dp"
+                    android:text="Artist"
+                    android:gravity="start"
+                    android:layout_weight="5"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:id="@+id/duration_tv"
+                    android:maxLength="6"
+                    android:maxLines="1"
+                    android:textSize="17sp"
+                    android:padding="3dp"
+                    android:text="999:00"
+                    android:gravity="end"
+                    android:layout_weight="1"/>
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

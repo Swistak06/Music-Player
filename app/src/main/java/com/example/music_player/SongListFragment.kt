@@ -16,8 +16,8 @@ import com.example.music_player.adapter.MySongRecyclerViewAdapter
 import com.example.music_player.model.Song
 
 /**
- * A fragment representing a list of Items.
- * Activities containing this fragment MUST implement the
+ * A musicPlayerFrag representing a list of Items.
+ * Activities containing this musicPlayerFrag MUST implement the
  * [SongListFragment.OnSongSelectedListener] interface.
  */
 class SongListFragment : Fragment() {
@@ -78,7 +78,7 @@ class SongListFragment : Fragment() {
 
     /**
      * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
+     * musicPlayerFrag to allow an interaction in this musicPlayerFrag to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
      *

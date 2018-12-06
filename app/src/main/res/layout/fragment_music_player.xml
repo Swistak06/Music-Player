@@ -3,7 +3,7 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".music_player_fr">
+             tools:context=".MusicPlayerFragment">
 
     <LinearLayout
             android:orientation="vertical"
@@ -13,19 +13,9 @@
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp" android:layout_marginTop="8dp">
         <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="0.25" android:gravity="left|center">
-            <Button
-                    android:text="@string/back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/back_to_list_button"
-            />
-        </LinearLayout>
-        <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center">
+                android:layout_height="150dp" android:layout_weight="0.7" android:gravity="center">
             <TextView
                     android:text="TextView"
                     android:layout_width="match_parent"
